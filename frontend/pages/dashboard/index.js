@@ -49,7 +49,7 @@ function Dashboard() {
       try {
         const fetchData = async () => {
           const response = await axios.get(
-            "http://localhost:5000/api/users/getall",
+            "https://task-management-backend-hpay.onrender.com/api/users/getall",
             {
               headers: {
                 Authorization: `Bearer ${user?.token}`,
@@ -123,7 +123,7 @@ function Dashboard() {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/projects/${projectId}/task/${taskId}/complete`,
+        `https://task-management-backend-hpay.onrender.com/api/projects/${projectId}/task/${taskId}/complete`,
         details,
         {
           headers: {

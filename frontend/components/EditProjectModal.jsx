@@ -27,7 +27,7 @@ useEffect(()=>{
       try {
         const fetchData = async () => {
           const response = await axios.get(
-            "http://localhost:5000/api/users/getall",
+            "https://task-management-backend-hpay.onrender.com/api/users/getall",
             {
               headers: {
                 Authorization: `Bearer ${user.token}`,

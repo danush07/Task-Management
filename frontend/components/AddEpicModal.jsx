@@ -29,7 +29,7 @@ function EpicModal({projectId, onClose}) {
 
       try {
         await axios.post(
-          `http://localhost:5000/api/projects/${projectId}/addepicname`,
+          `https://task-management-backend-hpay.onrender.com/api/projects/${projectId}/addepicname`,
           details,
           {
             headers: {

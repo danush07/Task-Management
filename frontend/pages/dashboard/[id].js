@@ -55,7 +55,7 @@ function ProjectPage({ id }) {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:5000/api/users/getall",
+            "https://task-management-backend-hpay.onrender.com/api/users/getall",
             {
               headers: {
                 Authorization: `Bearer ${user.token}`,
@@ -168,18 +168,20 @@ const navigateToProject = (Id) => {
     };
   
     try {
-      await axios.put(
-        `http://localhost:5000/api/projects/${id}/task/${taskId}/complete`,
-        details,
-        {
-          headers: {
-            'Authorization': `Bearer ${user.token}`,
-          },
-        },
-      ).then(() => {
-        dispatch(getSingleProject(id, user.token));
-        toast.success('Task Updated Successfully');
-      })
+      await axios
+        .put(
+          `https://task-management-backend-hpay.onrender.com/api/projects/${id}/task/${taskId}/complete`,
+          details,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        )
+        .then(() => {
+          dispatch(getSingleProject(id, user.token));
+          toast.success("Task Updated Successfully");
+        });
     } catch (e) {
       console.log(e);
     }
@@ -194,69 +196,69 @@ const navigateToProject = (Id) => {
   return (
     <>
       {user && (
-        <div className='h-screen  font-[inter]'>
+        <div className="h-screen  font-[inter]">
           <Header />
-          <div className='flex justify-between items-center p-4 mt-10'>
-            <div className='flex items-center space-x-4'>
-              <Link href='/dashboard' className='ml-2'>
+          <div className="flex mt-12">
+            <div className="flex items-center ">
+              <Link href="/dashboard" className="ml-2">
                 <button
-                  type='button'
-                  className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                  type="button"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <div className='flex items-center'>
+                  <div className="flex items-center">
                     <svg
-                      className='w-5 mr-2'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'
-                      xmlns='http://www.w3.org/2000/svg'
+                      className="w-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fillRule='evenodd'
-                        d='M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z'
-                        clipRule='evenodd'
+                        fillRule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clipRule="evenodd"
                       ></path>
                     </svg>
                     Back to Dashboard
                   </div>
                 </button>
               </Link>
-              <div className='relative flex items-center'>
+              <div className="relative flex items-center">
                 <input
-                  type='text'
-                  placeholder='Search Projects...'
+                  type="text"
+                  placeholder="Search Projects..."
                   value={searchTerm}
                   onChange={handleSearch}
                   onFocus={handleInputFocus}
                   onBlur={handleInputBlur}
-                  className='border border-gray-300 rounded-md p-2 pl-8 focus:outline-none focus:border-blue-500'
+                  className="border border-gray-300 rounded-md p-2 pl-8 focus:outline-none focus:border-blue-500"
                 />
                 <svg
-                  className='absolute top-3 left-2 w-5 h-5 text-gray-500'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
+                  className="absolute top-3 left-2 w-5 h-5 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0z'
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-6a8 8 0 11-16 0 8 8 0 0116 0z"
                   ></path>
                 </svg>
               </div>
             </div>
 
             {showResults && (
-              <div className='absolute bg-white  w-60  left-60 top-40 z-10 rounded-md shadow-lg max-h-40 overflow-y-auto'>
+              <div className="absolute bg-white  w-60  left-60 top-40 z-10 rounded-md shadow-lg max-h-40 overflow-y-auto">
                 {searchResults.length > 0
                   ? searchResults.map((project) => (
                       <div
                         key={user.id}
-                        className='cursor-pointer text-start p-2 mb-1 hover:bg-gray-100'
+                        className="cursor-pointer text-start p-2 mb-1 hover:bg-gray-100"
                         onClick={() => navigateToProject(project._id)}
                       >
-                        <span className='font-medium flex  px-12'>
+                        <span className="font-medium flex  px-12">
                           {project.title}
                         </span>
                       </div>
@@ -265,68 +267,68 @@ const navigateToProject = (Id) => {
               </div>
             )}
             {searchResults.length === 0 && inputFocused && (
-              <div className='absolute bg-white  w-60  left-60 top-40 z-10 rounded-md shadow-lg max-h-40 overflow-y-auto'>
-                <div className='p-2 text-gray-500'>No Results found.</div>
+              <div className="absolute bg-white  w-60  left-60 top-40 z-10 rounded-md shadow-lg max-h-40 overflow-y-auto">
+                <div className="p-2 text-gray-500">No Results found.</div>
               </div>
             )}
             {isAdmin && (
               <>
                 <button
                   onClick={openTaskModal}
-                  className='bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl dark:focus:ring-blue-800 flex ml-64 relative px-5 py-2 text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg'
-                  type='button'
+                  className="bg-gradient-to-br items-center text-center  from-purple-600 to-blue-500 hover:bg-gradient-to-bl dark:focus:ring-blue-800 flex ml-60 relative px-2 py-1 text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg"
+                  type="button"
                 >
-                  <MdAddTask className='mt-0.5 text-lg mr-2' /> Add Tasks
+                  <MdAddTask className="mt-0.5 text-lg mr-2" /> Add Tasks
                 </button>
                 <button
                   onClick={handleOpenEditModal}
-                  className='bg-blue-700 flex px-5  py-2 text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg'
-                  type='button'
+                  className="bg-blue-700 flex  ml-5 items-center text-center px-2 py-1 text-sm text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg"
+                  type="button"
                 >
-                  <MdModeEdit className='mt-0.5 text-lg mr-0.5' /> Edit Project
+                  <MdModeEdit className="mt-0.5 text-lg mr-0.5" /> Edit Project
                 </button>
                 <button
-                  type='button'
-                  className=' flex text-white mt-2 bg-gradient-to-br text-sm from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg px-5 py-2  text-center  mb-2'
+                  type="button"
+                  className=" flex text-white  ml-5 mt-2 bg-gradient-to-br text-sm from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg px-5 py-2  text-center  mb-2"
                   onClick={handleOpenAddMembersModal}
                 >
-                  <IoPersonAdd className='mt-0.5 text-lg mr-0.5' /> Add Members
+                  <IoPersonAdd className="mt-0.5 text-lg mr-0.5" /> Add Members
                 </button>
                 <button
                   onClick={openDeleteModal}
-                  className='bg-red-500 flex px-5 py-2 text-sm text-white hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg'
+                  className="bg-red-500  ml-5 p-2 rounded-sm text-sm text-white hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium"
                 >
-                  <FaRegTrashCan className='text-xl' />
+                  <FaRegTrashCan className="text-xl" />
                 </button>
               </>
             )}
           </div>
           {SingleProject && (
-            <div className='w-1/2 mx-auto bg-white rounded-xl shadow-lg p-8 space-y-5'>
-              <div className='mb-4'>
+            <div className="w-1/2 mx-auto bg-white rounded-xl shadow-lg p-8 space-y-5">
+              <div className="mb-4">
                 {isAdmin && (
-                  <div className='flex justify-end'>
+                  <div className="flex justify-end">
                     <button
                       onClick={openEpicModal}
-                      className='flex items-center font-semibold justify-end text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 p-2 rounded'
+                      className="flex items-center font-semibold justify-end text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 p-2 rounded"
                     >
-                      <GoTasklist className='text-xl ' /> Add Epic
+                      <GoTasklist className="text-xl " /> Add Epic
                     </button>
                   </div>
                 )}
-                <h1 className='text-3xl font-bold'>
+                <h1 className="text-3xl font-bold">
                   Project Title :{" "}
-                  <span className='text-blue-500 '>{SingleProject.title}</span>
+                  <span className="text-blue-500 ">{SingleProject.title}</span>
                 </h1>
-                <p className='text-gray-600 mt-3 font-medium'>
+                <p className="text-gray-600 mt-3 font-medium">
                   Description :{" "}
-                  <span className=''>{SingleProject.description}</span>
+                  <span className="">{SingleProject.description}</span>
                 </p>
-                <div className='block'>
-                  <span className='block'>
+                <div className="block">
+                  <span className="block">
                     Project Created By: {SingleProject?.createdBy}
                   </span>
-                  <span className='block'>
+                  <span className="block">
                     Created on :{" "}
                     {SingleProject.createdAt
                       ? moment(SingleProject.createdAt).format("lll")
@@ -341,15 +343,15 @@ const navigateToProject = (Id) => {
                 </div>
               </div>
 
-              <div className=''>
+              <div className="">
                 <strong>Members of the Project:</strong>{" "}
                 {getAssignedMembersNames()}
               </div>
-              <div className='p-4 bg-white rounded-sm shadow-sm space-y-5'>
-                <h1 className='text-xl'>Tasks : </h1>
+              <div className="p-4 bg-white rounded-sm shadow-sm space-y-5">
+                <h1 className="text-xl">Tasks : </h1>
                 <div>
-                  <div className='p-4 bg-white rounded-sm space-y-5'>
-                    <div className='shadow-sm'>
+                  <div className="p-4 bg-white rounded-sm space-y-5">
+                    <div className="shadow-sm">
                       {SingleProject.tasks && SingleProject.tasks.length > 0 ? (
                         SingleProject.tasks.map((task, index) => (
                           <Task
@@ -364,7 +366,7 @@ const navigateToProject = (Id) => {
                           />
                         ))
                       ) : (
-                        <div className='text-gray-500 text-center '>
+                        <div className="text-gray-500 text-center ">
                           There are Currently no Tasks for this Project.
                         </div>
                       )}

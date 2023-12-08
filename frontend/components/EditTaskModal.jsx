@@ -33,7 +33,7 @@ const EditTaskModal = ({
     try {
       const fetchData = async () => {
         const response = await axios.get(
-          "http://localhost:5000/api/users/getall",
+          "https://task-management-backend-hpay.onrender.com/api/users/getall",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -97,7 +97,7 @@ const EditTaskModal = ({
       try {
         await axios
           .put(
-            `http://localhost:5000/api/projects/${projectId}/task/${taskid}`,
+            `https://task-management-backend-hpay.onrender.com/api/projects/${projectId}/task/${taskid}`,
             details,
             {
               headers: {

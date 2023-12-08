@@ -17,7 +17,7 @@ function TaskDeleteModal({projectId, onClose, taskid}) {
     try {
       await axios
         .delete(
-          `http://localhost:5000/api/projects/${projectId}/task/${taskid}`,
+          `https://task-management-backend-hpay.onrender.com/api/projects/${projectId}/task/${taskid}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

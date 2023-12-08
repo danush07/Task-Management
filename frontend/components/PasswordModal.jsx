@@ -70,7 +70,7 @@ function PasswordModal({onClose}) {
     if (!cpasswordError && !passwordError) {
       try {
         await axios.put(
-          `http://localhost:5000/api/users/changepassword`,
+          `https://task-management-backend-hpay.onrender.com/api/users/changepassword`,
           details,
           {
             headers: {
