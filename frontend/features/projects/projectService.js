@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const PROJECT_API = "http://localhost:5000/api/projects/createproject"
+const PROJECT_API =
+  "https://task-management-backend-hpay.onrender.com/api/projects/createproject";
 
 const createProject = async(details,token) =>{
     try{
@@ -15,7 +16,8 @@ const createProject = async(details,token) =>{
         throw error;
     }
 }
-const GET_PROJECTS = "http://localhost:5000/api/projects/getprojects"
+const GET_PROJECTS =
+  "https://task-management-backend-hpay.onrender.com/api/projects/getprojects";
 const getAllProjects = async(token) =>{
     try{
         const config = {
@@ -33,7 +35,8 @@ const getAllProjects = async(token) =>{
 
 
 
-const GET_SINGLE_PROJECT = "http://localhost:5000/api/projects/"
+const GET_SINGLE_PROJECT =
+  "https://task-management-backend-hpay.onrender.com/api/projects/";
 
 const getSingleProject = async(id,token) =>{
   try{
@@ -76,7 +79,8 @@ const deleteProject = async (id, token) => {
   }
 };
 
-const ADD_TASK = "http://localhost:5000/api/projects/addtask"
+const ADD_TASK =
+  "https://task-management-backend-hpay.onrender.com/api/projects/addtask";
 const createTask = async(data,token) =>{
   try{
     const config = {
