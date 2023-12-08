@@ -25,7 +25,7 @@ function LogoutModal({onClose}) {
     <>
       <div
         id='delete-modal'
-        className='fixed top-0 flex align-middle bg-white items-center justify-center right-0 z-50 w-full h-full p-4 overflow-x-hidden overflow-y-auto md:inset-0'
+        className='fixed top-0 flex align-middle items-center justify-center right-0 z-50 w-full h-full p-4 overflow-x-hidden overflow-y-auto md:inset-0'
       >
         <div className='relative p-4 w-full  bg-white max-w-md h-full md:h-auto'>
           <div className='relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5'>
