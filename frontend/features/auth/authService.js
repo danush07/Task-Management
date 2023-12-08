@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-let URL = "http://localhost:5000/api/users/register";
+let URL =
+  "https://task-management-backend-hpay.onrender.com/api/users/";
 
 const register = async (userData) => {
   const response = await axios.post(URL, userData);
@@ -12,7 +13,7 @@ const register = async (userData) => {
   Cookies.set('user', JSON.stringify(response.data));
   return response.data;
 };
-let LOGIN_URL = "http://localhost:5000/api/users/";
+let LOGIN_URL = "https://task-management-backend-hpay.onrender.com/api/users/";
 
 const login = async (userData) => {
   const response = await axios.post(LOGIN_URL + "login", userData);
@@ -31,7 +32,10 @@ const profilePage = async (token) =>{
         Authorization: `Bearer ${token}`,
       },
     };
-    const response  = await axios.get("http://localhost:5000/api/users/me",config)
+    const response = await axios.get(
+      "https://task-management-backend-hpay.onrender.com/api/users/me",
+      config
+    );
     return response.data
   }catch(e){
     console.log(e)
