@@ -51,7 +51,7 @@ function LogoutModal({onClose}) {
               <span className='sr-only'>Close modal</span>
             </button>
             <div className='flex justify-center items-center'>
-              <FaSignOutAlt className=' text-8xl text-center flex justify-center' />
+              <FaSignOutAlt className=' text-8xl text-white text-center flex justify-center' />
             </div>
             <p className='mb-4 text-gray-500 dark:text-gray-300'>
               Are you sure you want to logout?
