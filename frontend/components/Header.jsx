@@ -28,8 +28,8 @@ function Header() {
         {user ? (
           <>
             <Link href='/profile'>
-              <div className='relative inline-flex items-center justify-center w-10 h-10 mr-6 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-600 hover:bg-gray-300 transition duration-500 ease select-none '>
-                <span className='font-medium text-xl text-gray-600 dark:text-gray-300'>
+              <div className='relative text-black bg-gray-500 inline-flex items-center justify-center w-10 h-10 mr-6 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-600 hover:bg-gray-300 transition duration-500 ease select-none '>
+                <span className='font-medium text-xl  dark:text-gray-300'>
                   {user.name.toUpperCase().charAt(0)}
                 </span>
               </div>
