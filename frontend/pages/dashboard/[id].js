@@ -296,7 +296,7 @@ const navigateToProject = (Id) => {
                 </button>
                 <button
                   onClick={openDeleteModal}
-                  className="bg-red-500  ml-5 py-2 px-1 rounded-sm text-sm text-white hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium"
+                  className="ml-5 text-red-600 rounded-sm text-sm text-white hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium"
                 >
                   <FaRegTrashCan className="text-xl" />
                 </button>
