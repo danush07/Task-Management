@@ -8,11 +8,11 @@ also modify the .env variables MONGO_URI, JWT_SECRET & PORT
 
 Credentials
 Normal User: 
-emp id : STS-<with three digits after>
-email : must include spantechnologyservices.com
+emp id : DTS-<with three digits after>
+email : must include danushtechnologyservices.com
 
 Admin user : 
-email : must include sts@admin.com
+email : must include @admin.com
 password is : Span@123
 
 
