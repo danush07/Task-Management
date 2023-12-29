@@ -97,10 +97,10 @@ function UserRegister() {
           : "Please enter a valid email address"
       );
     } else if (field === "empid") {
-      const empregex = /^STS-\d{3}$/;
+      const empregex = /^DTS-\d{3}$/;
       setEmpIdErr(
         !empregex.test(value.trim())
-          ? "ID Must begin with STS- followed by 3 digit numbers"
+          ? "ID Must begin with DTS- followed by 3 digit numbers"
           : ""
       );
     } else if (field === "password") {
