@@ -92,7 +92,7 @@ function UserRegister() {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
       setEmailError(
         emailRegex.test(value.trim()) &&
-          value.trim().toLowerCase().includes("@spantechnologyservices.com")
+          value.trim().toLowerCase().includes("@danushtechnologyservices.com")
           ? ""
           : "Please enter a valid email address"
       );
