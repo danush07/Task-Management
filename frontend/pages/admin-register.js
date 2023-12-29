@@ -59,7 +59,7 @@ function AdminRegister() {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
       setEmailError(
         emailRegex.test(value.trim()) &&
-          value.trim().toLowerCase().includes("sts@admin.com")
+          value.trim().toLowerCase().includes("@admin.com")
           ? ""
           : "Please enter a valid email address"
       );
@@ -69,10 +69,10 @@ function AdminRegister() {
         adminPasswordRegex.test(value.trim()) ? "" : "Password is Not Valid"
       );
     } else if (field === "empid") {
-      const empregex = /^STS-\d{3}$/;
+      const empregex = /^DTS-\d{3}$/;
       setEmpIdErr(
         !empregex.test(value.trim())
-          ? "ID Must begin with STS- followed by 3 digit numbers"
+          ? "ID Must begin with DTS- followed by 3 digit numbers"
           : ""
       );
     }
